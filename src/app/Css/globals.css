@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    /* background-image: url(../../../public//Images//bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position : relative ; */
+/* background-color: #F8F8F8; */
+background-color: #f4f7fe;
+/* color: #dee1e7; */
+}
+.pattern{
+    background-image: url(../../../public//Images//pattern.png);
+    background-repeat: repeat;
+    background-size: 200px;
+    background-position: center;
+
+
+}
+.mBlur{
+    -webkit-backdrop-filter: blur(124px);
+            backdrop-filter: blur(124px);
+   }
+
+   .borderGlass{
+    border: 1px solid #ffffff1f ;
+    
+    }
+    .Gborder{
+        border: 1px solid #ffffff1f ;
+        
+        }
+    input:-internal-autofill-selected {
+        background-color: #ffffff1f !important;
+    }
+
+
+     

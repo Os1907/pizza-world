@@ -8,12 +8,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors:{
+        main:"#f46801",
+        main2:"#f68634",
+        main_shadow:"#f68634",
+        body : "#f4f7fe",
+        text:"#1c275a",
+         text_light :"#a3aed0",
+        textBorder:"#dee1e7",
+        dark:"#0f0f0f",
+        lightDark:"#151515",
       },
-    },
+      borderRadius:{
+        pixel:"28px",
+        pixel2xl:"56px",
+      },
+      fontSize: {
+        xs: '12px',
+      },
+      
+
+
+      }
   },
   plugins: [],
 };
