@@ -4,20 +4,15 @@ import AddressInfo from '@/app/_Components/address/addressInfo';
 import FormAddress from '@/app/_Components/address/formAddress';
 import TotalPrice from '@/app/_Components/TotalPrice/totalPrice'
 import { clearBill } from '@/Redux/Slices/BillOrder';
-import { addFinalOrder } from '@/Redux/Slices/finalOrder';
+import { addFinalOrder } from '@/Redux/Slices/FinalOrder';
 import { clearTotalBill } from '@/Redux/Slices/totalBill';
-import { RootState } from '@/Redux/store';
-import Image from 'next/image';
 import Link from 'next/link';
 import { IoCheckmarkDoneCircle } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import Table from '@/app/_Components/tableCheck/table';
-
-const useBill = () => useSelector((state: RootState) => state.Bill);
-const useInfo = () => useSelector((state: RootState) => state.UserInfo);
-const useTotalBill = () => useSelector((state: RootState) => state.totalBill);
-const useFinalOrder = () => useSelector((state: RootState) => state.finalOrder);
+import { useBill, useInfo, useTotalBill } from '@/Hooks/useSelectors';
+import { addToOrderList } from '@/Redux/Slices/OrderList';
+import { useDate } from '@/Hooks/useDate';
 
 const useOrderInfo = () => {
   const time = new Date();
@@ -29,16 +24,19 @@ const useOrderInfo = () => {
     id: `#${hours}${minutes}${seconds}ODR${Math.floor(Math.random() * 1000)}`,
   };
 };
+
 const useCheckOutAction = () => {
   const dispatch = useDispatch();
   const bill = useBill();
   const Info = useInfo();
   const totalBill = useTotalBill();
   const orderInfo = useOrderInfo();
+  const date = useDate()
   return () => {
     dispatch(clearBill());
     dispatch(clearTotalBill());
     dispatch(addFinalOrder({ bill, Info, totalBill, ...orderInfo }))
+    dispatch(addToOrderList({ bill, Info, totalBill, ...orderInfo , date }))
   }
 }
 

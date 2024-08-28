@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./Css/globals.css";
 import "./Css/scrollbar.css";
 import "./Css/animation.css";
 import ReduxProvider from "@/Redux/Provider";
 
-const font = Inter({
+const font = DM_Sans({
   subsets: ["latin"],
   weight: [ "100","200", "300", "400", "500", "600", "700", "800", "900"],
 })

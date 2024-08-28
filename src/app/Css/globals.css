@@ -37,5 +37,11 @@ background-color: #f4f7fe;
         background-color: #ffffff1f !important;
     }
 
-
+    .bg-orangeSvg{
+        background-image: url(../../../public/Images/main.svg);
+        width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    }
      

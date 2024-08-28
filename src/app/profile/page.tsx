@@ -1,5 +1,5 @@
 'use client'
-import { IfinalOrder } from '@/interface/FinalOrder';
+import { IfinalOrder } from '@/interface/iFinalOrder';
 import { RootState } from '@/Redux/store';
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -8,6 +8,8 @@ import Navbar from '../_Components/Navbar/Navbar';
 import Table from '../_Components/tableCheck/table';
 import { IoMdNavigate } from 'react-icons/io';
 import { PiArrowFatUpFill } from 'react-icons/pi';
+import UseHydration from '@/Hooks/useHydration';
+import Loading from '../_Components/Loading/Loading';
 
 const useOrder = () => useSelector((state: RootState) => state.finalOrder);
 const useUserInfor = () => useSelector((state: RootState) => state.UserInfo);
@@ -17,22 +19,25 @@ export default function Profile() {
 
   const [latest, setLatest] = useState<IfinalOrder[]>()
   const [userName, setUserName] = useState<string | undefined>('');
+  // const [orderUser, setOrderUser] = useState<string | undefined>('');
   // To handel hydration Problem
   useEffect(() => {
     if (userInformation) {
       setUserName(userInformation.fullName?.toUpperCase());
     }
+    // setLatest(order);
   }, [userInformation]);
+  // console.log(    )
+  
+  // useEffect(() => {
+  //   if (order.find((item) => item.status === "Pending")) {
+  //     setLatest(order);
+  //   } else {
+  //     setLatest([]);
+  //   }
+  // }, [order]);
 
-  useEffect(() => {
-    if (order.find((item) => item.status === "Pending")) {
-      setLatest(order);
-    } else {
-      setLatest([]);
-    }
-  }, [order]);
-
-
+const { hydration } = UseHydration(order)
 
   return (
     <>
@@ -40,7 +45,8 @@ export default function Profile() {
         <Navbar />
       </div>
       <section>
-        <div className=' mx-4 lg:mx-20 lg:my-10  rounded-pixel py-2 px-4 lg:px-8   flex flex-col items-center justify-center  '>
+        {
+          hydration ? <div className=' mx-4 lg:mx-20 lg:my-10  rounded-pixel py-2 px-4 lg:px-8   flex flex-col items-center justify-center  '>
           <Image src={`https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=${userName}`} width={100} height={100} alt="profile/icon" className='rounded-pixel2xl' />
           <p className='text-start lg:text-center text-text  font-extrabold text-3xl  lg:text-5xl mt-4 mb-3'>
             {userName}
@@ -56,10 +62,10 @@ export default function Profile() {
           <div className="grid grid-cols-4  w-full px-40 gap-x-4">
 
             {
-              latest?.map(item => {
+              order?.filter((order) => order.Info.fullName === userInformation.fullName).map(item => {
                 return (
-                  <div key={item?.id} className={item?.status === "Pending" ? "col-span-4 lg:col-span-2 flex flex-col items-center  bg-white  my-3 py-3 px-6 rounded-pixel text-text  gap-y-3 border-main border relative  overflow-hidden" : " col-span-4 lg:col-span-2 flex flex-col items-center  bg-white  my-3 py-3 px-6 rounded-pixel text-text  gap-y-3 relative  overflow-hidden"}>
-                    <div className="flex justify-center mt-2 items-start rounded-b-pixel2xl transition-all bg-main animate-pulse absolute -top-2 right-0 h-10 w-20">
+                  <div key={item?.id} className={item?.status === "Pending" ? "col-span-4 lg:col-span-2 flex flex-col items-center  bg-white  my-3 py-3 px-6 rounded-pixel text-text  gap-y-3 border-main border relative  overflow-hidden" : " col-span-4 lg:col-span-2 flex flex-col items-center  bg-white  my-3 py-3 px-6 rounded-pixel text-text border border-text  gap-y-3 relative  overflow-hidden"}>
+                    <div className={ item?.status != "Pending" ? "flex justify-center mt-2 items-start rounded-b-pixel2xl transition-all bg-text absolute -top-2 right-0 h-10 w-20":"flex justify-center mt-2 items-start rounded-b-pixel2xl transition-all bg-main animate-pulse absolute -top-2 right-0 h-10 w-20"}>
                       <p className='text-body  font-semibold text-xs px-1 pt-2'>
                         {item?.status}
                       </p>
@@ -102,7 +108,11 @@ export default function Profile() {
 
 
           </div>
+        </div> : <div className='min-h-screen flex items-center'>
+              <Loading shape={'box'}/>
         </div>
+        }
+        
       </section>
 
     </>

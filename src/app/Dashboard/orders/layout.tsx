@@ -6,26 +6,36 @@ import Link from 'next/link';
 import React from 'react'
 import Loading from '@/app/_Components/Loading/Loading';
 import { usePathname } from 'next/navigation';
+import { IoIosTimer } from 'react-icons/io';
 
-const useOrders = () => useSelector((state: RootState) => state.finalOrder);
+const useOrders = () => useSelector((state: RootState) => state.orderList);
+const useEarning = () => useSelector((state: RootState) => state.Earnings);
+
 interface IlayOut {
     children: React.ReactNode
 }
 export default function Layout({ children }: IlayOut) {
     const orders = useOrders()
+    const earnings = useEarning()
+
     const {hydration} = UseHydration(orders)
 const pathname = usePathname()    
 
     return (
         <>
 
-            <div className='   grid grid-cols-10 min-h-screen'>
+            <div className='   grid grid-cols-10 min-h-screen '>
                 {
-                    hydration ? <> <div className='bg-dark   min-h-screen col-span-4 pt-5 '>
+                    hydration ? <> <div className='bg-dark   min-h-screen col-span-4 pt-8 px-4 '>
                         <p className='text-body font-bold text-5xl'>
                             <span className="text-main "> | </span>   {"Order's"} List
                         </p>
-                        <div className=' mt-3 mx-4 flex flex-col items-center justify-center gap-y-2 '>
+                        <p className='text-body font-extrabold text-3xl'>
+                            {
+                                earnings[3]?.amount
+                            }
+                        </p>
+                        <div className=' mt-3 mx-1 flex flex-col items-center justify-center gap-y-4 '>
 
                             {
                                 orders?.map((order) => {
@@ -35,7 +45,17 @@ const pathname = usePathname()
                                             <p className='text-body font-bold text-lg '>
                                                 Order : {order?.id}
                                             </p>
-                                            <div className='text-end'>
+                                            <div className=' flex justify-between text-end mt-2'>
+                                                <div className='flex gap-x-1 items-center text-body'>
+                                                <IoIosTimer className='text-sm'/>
+                                                <p className=' font-semibold text-sm'>
+                                                    {order?.date?.time.slice(0, 5)}
+                                                </p>
+                                                <p className='font-medium text-xs mx-2 '>
+                                                    {order?.date?.day},{order?.date?.month}
+                                                </p>
+
+                                                </div>
 
                                             <p className='text-body font-bold '>
                                                 {order?.totalBill[0].total} EGP
@@ -59,7 +79,10 @@ const pathname = usePathname()
 
                     </div>
                     
-                     </> : <Loading shape={'box'}/> 
+                     </> : <div className="col-span-10">
+
+                         <Loading shape={'box'}/> 
+                     </div>
                 }
 
 

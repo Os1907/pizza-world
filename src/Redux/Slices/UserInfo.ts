@@ -1,10 +1,11 @@
 import { Iuser } from "@/interface/Iuser";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: Iuser = 
-  typeof window !== "undefined" && localStorage.getItem("UserInfo")
+
+const initialState: Iuser =  typeof window !== "undefined" && localStorage.getItem("UserInfo")
     ? JSON.parse(localStorage.getItem("UserInfo") || "{}")
-    : {};
+    : { fullName: "", phoneNumber: "", address: "" }; 
+
 
 const UserInfo = createSlice({
   name: "UserInfo",

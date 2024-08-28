@@ -1,3 +1,4 @@
+import { iDate } from './iDate';
 import { Ipizza, totalBillPrice } from './Ipizza';
 import { Iuser } from './Iuser';
 export interface IfinalOrder{
@@ -5,5 +6,7 @@ export interface IfinalOrder{
     Info:Iuser,
     totalBill:totalBillPrice[],
     status?:string,
-    id:string
+    id:string,
+    date?: iDate,
+    index?:number
 }

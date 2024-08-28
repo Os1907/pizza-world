@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IfinalOrder } from "../../interface/FinalOrder";
+import { IfinalOrder } from "../../interface/iFinalOrder";
 
 const initialState: IfinalOrder[] = 
   typeof window !== "undefined" && localStorage.getItem("finalOrder") 
@@ -12,14 +12,17 @@ const finalOrder = createSlice({
     reducers: {
         addFinalOrder: (state, action) => {
             state.push(action.payload);
-            // if (state.length == 0) {
-            // } else {
-            //     state.splice(0, 1, action.payload);
-            // }
+            localStorage.setItem("finalOrder", JSON.stringify(state));
+        },
+        modifyStatus: (state, action) => {
+            const { index, status } = action.payload;
+            if (state[index]) {
+                state[index].status = status;
+            }
             localStorage.setItem("finalOrder", JSON.stringify(state));
         }
     }
 });
 
-export const { addFinalOrder } = finalOrder.actions;
+export const { addFinalOrder , modifyStatus } = finalOrder.actions;
 export const finalOrderSlice = finalOrder.reducer;
