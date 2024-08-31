@@ -7,7 +7,7 @@ export default function Pizza() {
   return (
     <>
     <section>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 py-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 py-3 px-4">
 
             {
                 pizza?.map((item)=> {

@@ -24,24 +24,25 @@ const pathname = usePathname()
     return (
         <>
 
-            <div className='   grid grid-cols-10 min-h-screen '>
+            <div className='   grid grid-cols-10 min-h-screen  pt-4'>
                 {
-                    hydration ? <> <div className='bg-dark   min-h-screen col-span-4 pt-8 px-4 '>
-                        <p className='text-body font-bold text-5xl'>
-                            <span className="text-main "> | </span>   {"Order's"} List
-                        </p>
-                        <p className='text-body font-extrabold text-3xl'>
-                            {
-                                earnings[3]?.amount
-                            }
-                        </p>
-                        <div className=' mt-3 mx-1 flex flex-col items-center justify-center gap-y-4 '>
+                    hydration ? <> <div className='bg-dark   min-h-screen col-span-10 lg:col-span-4 pt-8 px-4  '>
 
+                        <p className='text-body font-bold text-5xl'>
+                            <span className="text-main "> | </span>  
+                             {"Order's"} List
+                        </p>
+
+                        
+
+                        <div className=' mt-3 mx-1 flex flex-col items-center justify-center gap-y-4 '>
+                            {
+                                orders?.length === 0 ? <p className='text-center text-body font-bold text-xl'> No Orders Yet</p> :<>
                             {
                                 orders?.map((order) => {
                                     return (
-                                        <div  key={order.id} className={pathname.slice(21) === `${order.id.slice(1) }`? 'bg-main rounded-pixel  flex   justify-between gap-y-2 h-auto  w-full p-5 Gborder border-lightDark transition-all cursor-pointer' : 'bg-lightDark rounded-pixel  flex   justify-between gap-y-2 h-auto  w-full p-5 Gborder hover:border-main transition-all cursor-pointer'}>
-                                            <Link href={`/Dashboard/orders/ ${order.id.slice(1)}`} className='w-full'  >
+                                        <div  key={order.id} className={pathname.slice(20) === `${order.id.slice(1) }`? 'bg-main rounded-pixel  flex   justify-between gap-y-2 h-auto  w-full p-5 Gborder border-lightDark transition-all cursor-pointer' : ' bg-lightDark rounded-pixel  flex   justify-between gap-y-2 h-auto  w-full p-5 Gborder hover:border-main transition-all cursor-pointer'}>
+                                            <Link href={`/Dashboard/orders/${orders.findIndex((item)=> item.id === order.id)}_${order.id.slice(1)}`} className='w-full'  >
                                             <p className='text-body font-bold text-lg '>
                                                 Order : {order?.id}
                                             </p>
@@ -66,15 +67,16 @@ const pathname = usePathname()
                                     )
                                 }
                                 )
+
                             }
-
-
-
-
+                            </>
+                        }
                         </div>
 
                     </div>
+
                     <div className="col-span-6 ">
+
                         {children}
 
                     </div>
@@ -82,6 +84,7 @@ const pathname = usePathname()
                      </> : <div className="col-span-10">
 
                          <Loading shape={'box'}/> 
+
                      </div>
                 }
 

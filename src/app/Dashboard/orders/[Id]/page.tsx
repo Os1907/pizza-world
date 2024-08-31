@@ -19,7 +19,8 @@ const useOrders = () => useSelector((state: RootState) => state.orderList);
 export default function Page() {
     const order = useOrders()
     // const earnings = useEarning()
-const pathname = usePathname()   
+const pathname = usePathname() 
+const path =pathname.slice(18) 
 const dispatch = useDispatch() 
 const { hydration } = UseHydration(order)
 const acceptOrder = (index:number | undefined , amount:number)=>{
@@ -31,6 +32,7 @@ const rejectOrder = (index:number | undefined )=>{
   dispatch(modifyStatus({index,status:'Rejected'}))
   dispatch(removeFromOrderList(index))
 }
+// console.log()
   return (
     <>
 
@@ -40,7 +42,7 @@ const rejectOrder = (index:number | undefined )=>{
     </h1> :  <Loading shape='loader'/>
 } */}
  {
-          order?.filter((order) => order.id === `#${pathname.slice(21)}`).map((order) => {
+          order?.filter((order) => order.id === `#${pathname.slice(20)}`).map((order) => {
             return (
               <div key={order.id} className='flex justify-center  items-center flex-col text-body p-10 gap-y-3 bg-lightDark Gborder m-4 rounded-pixel2xl shadow '>
                 <div className='flex flex-wrap justify-between px-4 border-b border-body gap-y-2 '>
@@ -62,11 +64,11 @@ const rejectOrder = (index:number | undefined )=>{
 
                 </div>
                 <div className='w-full flex  justify-center gap-x-3 font-semibold'>
-            <p onClick={()=> rejectOrder(order?.index) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-body text-dark Gborder group transition-all cursor-pointer'>
+            <p onClick={()=> rejectOrder(Number(path.slice(0,1))) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-body text-dark Gborder group transition-all cursor-pointer'>
               Reject Order <FaXmark className='hidden group-hover:inline transition-all '/>
             </p>
               
-            <p onClick={()=> acceptOrder(order?.index, order.totalBill[0].total ) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-main group transition-all cursor-pointer'>
+            <p onClick={()=> acceptOrder(Number(path.slice(0,1)), order.totalBill[0].total ) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-main group transition-all cursor-pointer'>
               Accept Order <FaCheck className='hidden group-hover:inline transition-all '/>
             </p>
 

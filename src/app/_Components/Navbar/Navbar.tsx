@@ -13,15 +13,15 @@ export default function Navbar() {
   const pathname = usePathname()
   return (
     <>
-      <aside className=' flex    lg:flex-col items-center rounded-pixel  lg:rounded-none my-5 lg:my-0 lg:min-h-screen  lg:mx-0  lg:pb-5  px-4     relative  lg:fixed '>
+      <aside className=' flex  justify-start  gap-x-5  lg:flex-col items-center rounded-pixel  lg:rounded-none my-5 lg:my-0 bg-main  w-32  lg:mx-0  lg:pb-5  px-4  min-h-screen fixed     '>
 
-        <Image src="/Images/logo.png" className="lg:my-5 w- 14 px- 1 size-14 " alt="logo" width={80} height={80} />
+        <Image src="/Images/wlogo.png" className="lg:my-12 w- 14 px- 1 size-14 " alt="logo" width={80} height={80} />
 
-        <div className='bg-main  text-body rounded-pixel w-full lg:w-auto   text-lg lg:mt-5  inline-flex lg:py-4 px-2  lg:flex-col items-center justify-center gap-y-4'>
+        <div>
 
 
           {
-            pathname.includes("Dashboard") ? <div>
+            pathname.includes("Dashboard") ? <div  className='bg-dark  text-body rounded-pixel w-full lg:w-auto   text-lg lg:mt-5  inline-flex lg:py-4 px-2  lg:flex-col items-center justify-center gap-y-4'>
               <Link href='/Dashboard/orders'>
 
                 <p className='  hover:bg-main2 transition-all cursor-pointer rounded-pixel p-2'>
@@ -40,7 +40,7 @@ export default function Navbar() {
                   <PiArrowsCounterClockwiseBold />
                 </p>
               </Link>
-            </div> : <div>
+            </div> : <div  className='bg-text  text-body rounded-pixel w-full lg:w-auto   text-lg lg:mt-5  inline-flex lg:py-4 px-2  lg:flex-col items-center justify-center gap-y-4'>
 
               <Link href='/home'>
 

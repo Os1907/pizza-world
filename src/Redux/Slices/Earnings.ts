@@ -6,9 +6,9 @@ export interface Earnings {
 }
 
 const amounts = [
-  { week: "week1", amount: 7000 },
-  { week: "week2", amount: 6520 },
-  { week: "week3", amount: 8400 },
+  { week: "week1", amount: 13000 },
+  { week: "week2", amount: 7520 },
+  { week: "week3", amount: 3400 },
   { week: "week4", amount: 9310 },
 ];
 

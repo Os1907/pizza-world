@@ -43,5 +43,24 @@ background-color: #f4f7fe;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    /*  */
     }
+     
+    .bg-line{
+        background-image: url(../../../public/Images/line.svg);
+        width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(200px);
+    }
+    .bg-mainBlur{
+        background-image: url(../../../public/Images/main.svg);
+        width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(200px);
+    }
+     
      

@@ -20,12 +20,12 @@ useEffect(() => {
   return (
     <>
     
-    { pathname.includes('checkout') ? <> </>: <main className=" rounded-pixel2xl   pt-5 relative ">
+    { pathname.includes('checkout') ? <> </>: <main className=" rounded-pixel2xl   pt-5 relative px-4">
               <div className="text-text   mb-5">
                   <p className='text-5xl font-extrabold'>
                   <span className="text-main "> | </span>   Welcome, {userName} !
                   </p>
-                  <p className="text-text_light text-sm ml-1">
+                  <p className="text-text_light text-sm ml-1 mt-3">
                     {"Don't"} forget to visit us {"let's"} enjoy with most delicious pizza !
                   </p>
               </div>

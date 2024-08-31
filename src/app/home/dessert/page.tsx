@@ -7,7 +7,7 @@ export default function Dessert() {
   return (
     <>
     <section>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 py-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 pt-3 pb-5 px-4">
 
             {
                 dessert?.map((item)=> {

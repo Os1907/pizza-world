@@ -10,11 +10,9 @@ export default function layout({ children }: IlayOut) {
             <section className='bg-dark min-h-screen '>
                 <div className="grid grid-cols-12 ">
 
-                    <div className="col-span-6 lg:col-span-1  ">
-                        <div className="bg-lightDark border-r border-zinc-800  min-h-screen w-full flex justify-center">
-
+                    <div className=" lg:col-span-1 col-span-12  ">
                         <Navbar />
-                        </div>
+                        
                     </div>
 
                     <div className='col-span-12 lg:col-span-11  bg-orangeSvg'>
