@@ -13,20 +13,23 @@ import { useDispatch } from 'react-redux';
 import { removeFromOrderList } from '@/Redux/Slices/OrderList';
 import { modifyStatus } from '@/Redux/Slices/FinalOrder';
 import { increaseEarnings } from '@/Redux/Slices/Earnings';
+import { incrementItemCount } from '@/Redux/Slices/itemsCount';
+import { Ipizza } from '@/interface/Ipizza';
 
 const useOrders = () => useSelector((state: RootState) => state.orderList);
 
 export default function Page() {
     const order = useOrders()
-    // const earnings = useEarning()
 const pathname = usePathname() 
 const path =pathname.slice(18) 
 const dispatch = useDispatch() 
 const { hydration } = UseHydration(order)
-const acceptOrder = (index:number | undefined , amount:number)=>{
+const acceptOrder = (index:number | undefined , amount:number,bill?:Ipizza[])=>{
   dispatch(modifyStatus({index,status:'Preparing '}))
   dispatch(increaseEarnings(amount))
   dispatch(removeFromOrderList(index))
+  dispatch(incrementItemCount(bill))
+
 }
 const rejectOrder = (index:number | undefined )=>{
   dispatch(modifyStatus({index,status:'Rejected'}))
@@ -44,7 +47,7 @@ const rejectOrder = (index:number | undefined )=>{
  {
           order?.filter((order) => order.id === `#${pathname.slice(20)}`).map((order) => {
             return (
-              <div key={order.id} className='flex justify-center  items-center flex-col text-body p-10 gap-y-3 bg-lightDark Gborder m-4 rounded-pixel2xl shadow '>
+              <div key={order.id} className='flex justify-center  items-center flex-col text-body p-10 gap-y-3 bg-lightDark Gborder my-4 rounded-pixel2xl shadow '>
                 <div className='flex flex-wrap justify-between px-4 border-b border-body gap-y-2 '>
                 <AddressInfo Info={order.Info} />
                 <p className='font-semibold'>
@@ -68,7 +71,7 @@ const rejectOrder = (index:number | undefined )=>{
               Reject Order <FaXmark className='hidden group-hover:inline transition-all '/>
             </p>
               
-            <p onClick={()=> acceptOrder(Number(path.slice(0,1)), order.totalBill[0].total ) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-main group transition-all cursor-pointer'>
+            <p onClick={()=> acceptOrder(Number(path.slice(0,1)), order.totalBill[0].total, order.bill ) } className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-main group transition-all cursor-pointer'>
               Accept Order <FaCheck className='hidden group-hover:inline transition-all '/>
             </p>
 

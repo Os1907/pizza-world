@@ -153,7 +153,7 @@ export const Items = {
     },
     {
       id: "Dount3",
-      name: " Chocolate Dounts",
+      name: "Chocolate Dounts",
       price: 39.99,
       time: "10 min",
       img: "/Images/Dessert/Dounts/main.png",
@@ -163,7 +163,7 @@ export const Items = {
     },
     {
       id: "Mango4",
-      name: " Mango Pie",
+      name: "Mango Pie",
       price: 74.99,
       time: "15 min",
       img: "/Images/Dessert/Mango/main.png",
@@ -173,7 +173,7 @@ export const Items = {
     },
     {
       id: "molten5",
-      name: " Molten Cake ",
+      name: "Molten Cake ",
       price: 84.99,
       time: "18 min",
       img: "/Images/Dessert/molten cake/main.png",
@@ -183,7 +183,7 @@ export const Items = {
     },
     {
       id: "Nutella6",
-      name: " Nutella Pie ",
+      name: "Nutella Pie ",
       price: 84.99,
       time: "15 min",
       img: "/Images/Dessert/Nutella/main.png",
@@ -193,7 +193,7 @@ export const Items = {
     },
     {
       id: "strawberry7",
-      name: " Strawberry pancake  ",
+      name: "Strawberry pancake  ",
       price: 64.99,
       time: "15 min",
       img: "/Images/Dessert/strawberry pancake/main.png",

@@ -5,10 +5,13 @@ import ReactApexChart from 'react-apexcharts'; // Keep only one import for React
 interface Iprop {
   current: Earnings[],
   last: Earnings[],
-  text?: string
+  text?: string,
+  size?:string,
+  x?:string,
+  y?:string,
 }
 
-const Charts = ({ current, last, text }: Iprop) => {
+const Charts = ({ current, last, text , size , y,x }: Iprop) => {
 
   const chartOptions = {
     chart: {
@@ -31,15 +34,7 @@ const Charts = ({ current, last, text }: Iprop) => {
             }
           }
     },
-    title: {
-      text,
-      align: undefined,
-      style: {
-        fontSize: '20px',
-        color: '#f4f7fe',
-        fontWeight: "500",
-      },
-    },
+   
     colors: ['#f46801' , '#1e90ff'],
     legend: {
       labels: {
@@ -51,12 +46,12 @@ const Charts = ({ current, last, text }: Iprop) => {
 
   const chartSeries = [
     {
-    name:"Current month", // Provide a name for the series
+    name:x, // Provide a name for the series
     data: current.map(Item => Item.amount),
     color:"#f46801"
   },
   {
-    name:"Last month", // Provide a name for the series
+    name:y, // Provide a name for the series
     data: last.map(Item => Item.amount),
     color:"#1e90ff"
   }
@@ -64,7 +59,7 @@ const Charts = ({ current, last, text }: Iprop) => {
 
   return (
     <div className="chart-container bg-lightDark pt-4  rounded-pixel">
-      <p className='text-body px-6 font-extrabold text-center  text-xl  my-4'>
+      <p className={`text-body px-6 font-extrabold text-center  text-${size} my-4`}>
                                     {text}
                                 </p>
       <ReactApexChart 

@@ -5,3 +5,9 @@ export interface iDate{
     month: string;
         year: number
      }
+
+
+export interface orderCount  {
+  name: string;
+  count: number;
+}

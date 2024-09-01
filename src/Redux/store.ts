@@ -5,6 +5,7 @@ import { InfoSlice } from "./Slices/UserInfo";
 import { finalOrderSlice } from "./Slices/FinalOrder";
 import { orderListSlice } from "./Slices/OrderList";
 import { earningsSlice } from "./Slices/Earnings";
+import { itemCountSlice } from "./Slices/itemsCount";
 
 
 
@@ -17,6 +18,7 @@ export const store = configureStore({
         finalOrder: finalOrderSlice,
         orderList: orderListSlice,
         Earnings:earningsSlice,
+        itemCount:itemCountSlice,
     },
     devTools: process.env.NODE_ENV !== 'production',
 })

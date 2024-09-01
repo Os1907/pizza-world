@@ -58,16 +58,7 @@ const TinyBarChart = ({ current, last, text }: Iprop) => {
         },
       }
     },
-    title: {
-      text,
-      floating: true,
-      offsetY: 0,
-      style: {
-        fontSize: '14px',
-        color: '#f4f7fe',
-        fontWeight: "500",
-      }
-    },
+   
    
     colors: ['#f46801' , '#1e90ff'], 
     legend: {
@@ -95,7 +86,7 @@ const TinyBarChart = ({ current, last, text }: Iprop) => {
 
   return (
     <div className="chart-container bg-lightDark pt-4  rounded-pixel">
-      <p className='text-body px-6 font-extrabold text-center  text-sm  my-4'>
+      <p className='text-body px-6 font-extrabold text-center  text-base  my-4'>
         {text}
                                 </p>
       <ReactApexChart 
