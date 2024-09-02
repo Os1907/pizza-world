@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 body{
-    /* background-image: url(../../../public//Images//bg3.jpg);
+    background-image: url(../../../public//Images//bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position : relative ; */
+    position : relative ;
 /* background-color: #F8F8F8; */
-background-color: #f4f7fe;
+/* background-color: #f4f7fe; */
 /* color: #dee1e7; */
 }
 .pattern{

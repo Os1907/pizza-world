@@ -17,10 +17,10 @@ export default function Bill() {
             {
                 item.length != 0 && pathname.includes("checkout") != true ? <div className='  mx-5 wdithh  '>
 
-                    <div className='bg-white   rounded-pixel flex     flex-col gap-y-4 min-h-36 my-5   p-5 border-textBorder border   '>
+                    <div className='mBlur bg- white   rounded-pixel flex     flex-col gap-y-4 min-h-36 my-5   p-5  Gborder  '>
 
-                        <p className='text-text text-xl font-bold  text-start'>
-                            <span className='text-text font-extrabold'>|</span>   Order Details
+                        <p className='text-body text-xl font-bold  text-start'>
+                            <span className='text-body font-extrabold'>|</span>   Order Details
                         </p>
 
                         {item.map(data => <BillItem key={data.id} items={data} Index={item.findIndex((product) => product.name === data.name)} />)}
@@ -28,8 +28,8 @@ export default function Bill() {
 
                         <div className=' flex justify-center '>
 
-                            <Link href="/home/checkout" >
-                                <button className=' shadow-sm py-1 px-5 font-semibold border-text border  group text-text bg-light bg-body rounded-pixel  transition-all'>
+                            <Link href="/checkout" >
+                                <button className=' shadow-sm py-1 px-5 font-medium  Gborder border  group text-body bg-blury rounded-pixel  transition-all'>
                                     CheckOut <BiSolidNavigation className=' mb-1 text-lg rotate-45 hidden group-hover:inline transition-all ' />
                                 </button>
                             </Link>

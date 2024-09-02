@@ -30,10 +30,10 @@ const [isAdded, setIsAdded] = useState(false);
     <>
     {
 isAdded ? <div>
-      <button disabled className=' font-semibold  bg-main text-body Gborder text-sm  rounded-pixel px-3 py-1 '>
+      <button disabled className=' font-semibold  bg-main  text-body border border-main text-xs lg:text-sm  rounded-pixel px-3 py-1 '>
         Added
       </button> </div>: <div>
-                                  <button onClick={()=> Dispatch(modifedBill(afterAdded))} className='bg-body Gborder font-bold  group-hover:bg-main text-text group-hover:text-body text-sm   rounded-pixel px-3 py-1 '>
+                                  <button onClick={()=> Dispatch(modifedBill(afterAdded))} className='bg-blury Gborder font-bold  group-hover:bg-main text-body group-hover:text-body text-xs lg:text-sm   rounded-pixel px-3 py-1 '>
                                     Order now
                                   </button>
                                 </div>

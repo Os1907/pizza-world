@@ -28,9 +28,9 @@ export default function TotalPrice(props:Iprop) {
   return (
     <>
     {
-      props.items.length != 0 ?<div className='border-t border-double border-text font-medium '>
+      props.items.length != 0 ?<div className='border-t border-double border-body font-medium '>
 
-    <div className='text-text mt-2 flex justify-between'> 
+    <div className='text-body mt-2 flex justify-between'> 
       <p className="text-sm">
       Items Price  
       </p>  
@@ -39,7 +39,7 @@ export default function TotalPrice(props:Iprop) {
       </p>  
 
       </div>
-      <div  className='text-text mt-2 flex justify-between'> 
+      <div  className='text-body mt-2 flex justify-between'> 
       <p className="text-sm">
       Tax(14%)   
       </p>  
@@ -48,7 +48,7 @@ export default function TotalPrice(props:Iprop) {
       </p>  
 
       </div>
-      <div  className='text-text mt-2 flex justify-between'> 
+      <div  className='text-body mt-2 flex justify-between'> 
       <p className="text-sm">
       Delivery   
       </p>  
@@ -58,7 +58,7 @@ export default function TotalPrice(props:Iprop) {
 
       </div>
       
-      <div className='text-text border-t border-double border-text font-bold flex justify-between  pt-2 mt-2'> 
+      <div className='text-body border-t border-double border-body font-bold flex justify-between  pt-2 mt-2'> 
       <p className="text-sm">
       Total Price 
       </p>  

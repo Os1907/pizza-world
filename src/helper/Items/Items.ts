@@ -106,6 +106,36 @@ export const Items = {
       ],
     },
     {
+      id: "Primo15",
+      name: "Primo Meat",
+      price: 145.99,
+      time: "32 min",
+      img: "/Images/Pizza/Primo Meat/main.png",
+      description:
+        "Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and stretchy mozzarella.",
+      photos: [],
+    },
+    {
+      id: "Vegge16",
+      name: "Vegge Lover",
+      price: 129.99,
+      time: "32 min",
+      img: "/Images/Pizza/Vegge Lover/main.png",
+      description:
+        "Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green olives, black olives.",
+      photos: [],
+    },
+    {
+      id: "Arbia19",
+      name: "Egypto ",
+      price: 119.99,
+      time: "32 min",
+      img: "/Images/Pizza/Arbia/main.png",
+      description:
+        "Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green olives, black olives, fresh tomatoes.",
+      photos: [],
+    },
+    {
       id: "salm8",
       name: "Salmon",
       price: 179.99,

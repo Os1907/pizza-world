@@ -21,6 +21,7 @@ const config: Config = {
         //  0f0f0f
         lightDark:"#042340",
         // 151515  042340
+        blury:"#ffffff1c",
       },
       borderRadius:{
         pixel:"28px",
