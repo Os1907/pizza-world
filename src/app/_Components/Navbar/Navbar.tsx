@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { PiArrowsCounterClockwiseBold, PiUserBold } from 'react-icons/pi';
 import { MdFastfood, MdPreview } from 'react-icons/md';
@@ -12,11 +12,28 @@ import { TbReportSearch } from 'react-icons/tb';
 
 export default function Navbar() {
   const pathname = usePathname()
+  const [isFixed, setIsFixed] = useState(false);
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 50) { 
+      setIsFixed(true);
+    } else {
+      setIsFixed(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
-      <aside className=' flex justify-center lg:justify-start  gap-x-5  lg:flex-col items-center  bg-gradient-to-t to-mainRed from-main_orange  lg:mBlur border-r border-main_orange lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen lg:fixed     '>
+      <aside className={  pathname.includes("Dashboard") ? ` flex justify-between lg:justify-start  gap-x-5  lg:flex-col items-center  bg-dark  lg:mBlur border-r border-body border-b lg:border-b-0 lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full bg-dark z-50 ' : 'lg:fixed'}  ` :` flex justify-center lg:justify-start  gap-x-5  lg:flex-col items-center  bg-gradient-to-t to-mainRed from-main_orange  lg:mBlur border-r border-main_orange lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full z-50 ' : 'lg:fixed'}    `}>
 
-        <Image src="/Images/wlogo.png" className="lg:my-12  px-1 size-14 " alt="logo" width={80} height={80} />
+        <Image src="/Images/wlogo.png" className="lg:my-12  px-1 size-14 " alt="logo" width={100} height={100} />
 
 
 
