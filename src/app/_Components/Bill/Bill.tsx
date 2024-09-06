@@ -17,7 +17,7 @@ export default function Bill() {
             {
                 item.length != 0 && pathname.includes("checkout") != true ? <div className='  mx-5 wdithh  '>
 
-                    <div className='mBlur bg- white   rounded-pixel flex     flex-col gap-y-4 min-h-36 my-5   p-5  Gborder  '>
+                    <div className='bg-mainRed -to-t from-mainRed to-mainRed border border-main_orange  rounded-pixel flex     flex-col gap-y-4 min-h-36 my-5   p-5    '>
 
                         <p className='text-body text-xl font-bold  text-start'>
                             <span className='text-body font-extrabold'>|</span>   Order Details

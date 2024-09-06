@@ -18,10 +18,10 @@ const config: Config = {
          text_light :"#a3aed0",
         textBorder:"#dee1e7",
         dark:"#041C32",
-        //  0f0f0f
         lightDark:"#042340",
-        // 151515  042340
         blury:"#ffffff1c",
+          mainRed: "#d72540",
+        main_orange:"#f15b28"
       },
       borderRadius:{
         pixel:"28px",

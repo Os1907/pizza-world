@@ -48,14 +48,14 @@ useEffect(() => {
               <div className="my-2 flex  mx-1  gap-x-5" >
                 <Link href={'/home'}>
                 
-                <p className={ pathname === '/home'  ?  "text-body text-lg border-b-2 font-medium border-main" : "text-zinc-400 text-lg "}>
+                <p className={ pathname === '/home'  ?  "text-body text-lg border-b-2 font-medium border-main" : "text-body text-lg "}>
                 <CiPizza  className="inline mb-1"/>Pizza
                 </p>
                 </Link>
 
                 <Link href={'/home/dessert'}>
 
-                <p className={ pathname ===  '/home/dessert' ?  "text-body text-lg border-b-2 font-medium border-main" : "text-zinc-400 text-lg "}>
+                <p className={ pathname ===  '/home/dessert' ?  "text-body text-lg border-b-2 font-medium border-main" : "text-body text-lg "}>
                 <LuDessert  className="inline mb-1"/>  Dessert
                 </p>
                 </Link>

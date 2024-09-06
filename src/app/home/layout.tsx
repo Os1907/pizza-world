@@ -10,7 +10,7 @@ export default function layout({ children }: IlayOut) {
   const DynamicBill = dynamic(() => import('../_Components/Bill/Bill'), { ssr: false });
   return (
     <>
-    <div className='relative overflow-hidden'>
+    <div className='relative overflow-hidden bg-gradient-to-t to-mainRed from-main_orange '>
       <div className='text-main'>
 
       <Linebg />
