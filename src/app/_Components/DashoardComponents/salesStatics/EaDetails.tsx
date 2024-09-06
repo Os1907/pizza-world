@@ -29,7 +29,7 @@ export default function EaDetails(props:Iprop) {
                 </p>
                 </div>
             </div>
-            <div className='bg-line col-span-3 lg:col-span-2 px-5 lg:px-10 py-3 flex items-center  bg-lightDark rounded-pixel   gap-x-3 '>
+            <div className='bg-line col-span-6 lg:col-span-2 px-5 lg:px-10 py-3 flex items-center  bg-lightDark rounded-pixel   gap-x-3 '>
             <p className='  bg-main p-3 transition-all  rounded-pixel2xl text-base lg:text-xl text-body '>
                   <FaChartSimple />
                 </p>
@@ -42,7 +42,7 @@ export default function EaDetails(props:Iprop) {
                 </p>
                 </div>
             </div>
-            <div className='bg-line col-span-3 lg:col-span-2 px-5 lg:px-10 py-3 flex items-center  bg-lightDark rounded-pixel   gap-x-3 '>
+            <div className='bg-line col-span-6 lg:col-span-2 px-5 lg:px-10 py-3 flex items-center  bg-lightDark rounded-pixel   gap-x-3 '>
             <p className='  bg-main p-3 transition-all  rounded-pixel2xl text-base lg:text-xl text-body '>
                   <FaChartSimple />
                 </p>

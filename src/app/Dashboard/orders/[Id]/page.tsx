@@ -43,12 +43,15 @@ export default function Page() {
           {
             order?.filter((order) => order.id === `#${pathname.slice(20)}`).map((order) => {
               return (
-                <div key={order.id} className='flex justify-center  items-center flex-col text-body p-10 gap-y-3 bg-lightDark Gborder my-4 rounded-pixel2xl shadow '>
+                <div key={order.id} className='flex justify-center  items-center flex-col text-body p-2 lg:p-10 gap-y-3 bg-lightDark Gborder my-4 rounded-pixel2xl shadow '>
                   <div className='flex flex-wrap justify-between px-4 border-b border-body gap-y-2 '>
+                    <div className='p-2'>
+
                     <AddressInfo Info={order.Info} />
-                    <p className='font-semibold'>
-                      Time : {order?.date?.time.slice(0, 5)}
+                    <p className='text-sm lg:text-base font-semibold -mt-3'>
+                    <span className='font-extrabold mx-1'>Time :</span>   {order?.date?.time.slice(0, 5)}
                     </p>
+                    </div>
                   </div>
 
                   <div className='w-full text-body '>
@@ -56,13 +59,13 @@ export default function Page() {
                   </div>
 
                   <div className='text-main  w-full text-end '>
-                    <p className='text-xl font-extrabold border-t border-double border-main inline pt-3 '>
+                    <p className=' text-xs lg:text-xl font-extrabold border-t border-double border-main inline pt-3 '>
                       {order.totalBill[0].total} EGP
 
                     </p>
 
                   </div>
-                  <div className='w-full flex  justify-center gap-x-3 font-semibold'>
+                  <div className='w-full flex  justify-center gap-x-3 font-semibold text-sm lg:text-base pb-2'>
                     <p onClick={() => rejectOrder(Number(path.slice(0, 1)))} className=' px-5 py-2 hover:px-8 rounded-pixel2xl bg-body text-dark Gborder group transition-all cursor-pointer'>
                       Reject Order <FaXmark className='hidden group-hover:inline transition-all ' />
                     </p>

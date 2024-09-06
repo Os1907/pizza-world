@@ -36,7 +36,7 @@ export default function Page() {
     }
     return (
         <>
-        <section className='min-h-screen bg-dark px-4'>
+        <section className='min-h-screen bg-dark px-1 lg:px-4'>
             {hydration ? (
                 <div className='pt-10 pb-14'>
                     <h4 className='text-body px-6 font-extrabold text-center lg:text-start text-4xl lg:text-6xl mb-4'>

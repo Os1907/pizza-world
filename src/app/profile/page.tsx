@@ -47,7 +47,9 @@ const { hydration } = UseHydration(order)
       </div>
       <section>
         {
-          hydration ? <div className=' mx-4 lg:mx-20 lg:py-10  rounded-pixel py-2 px-4 lg:px-8   flex flex-col items-center justify-center  '>
+          hydration ? <div className='min-h-screen   bg-gradient-to-t to-mainRed from-main_orange '>
+
+           <div className=' mx-4 lg:mx-20 lg:py-10  rounded-pixel py-2 px-4 lg:px-8   flex flex-col items-center justify-center '>
             <div className='flex items-center bg-blury mBlur Gborder gap-x-3 py-4 px-6 rounded-full  '>
 
           <Image src={`https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=${userInformation?.fullName}`} width={65} height={65} alt="profile/icon" className='rounded-pixel2xl' />
@@ -56,10 +58,10 @@ const { hydration } = UseHydration(order)
           <p className='text-start lg:text-center text-body  font-extrabold text-md  lg:text-xl'>
            {userInformation?.fullName}
           </p>
-          <p className='text-start lg:text-center text-main  font-semibold text-xs  '>
+          <p className='text-start lg:text-center text-body  font-semibold text-xs  '>
             {userInformation?.address}
           </p>
-          <p className='text-start lg:text-center text-main  font-semibold text-xs  '>
+          <p className='text-start lg:text-center text-body  font-semibold text-xs  '>
             {userInformation?.phoneNumber}
           </p>
           </div>
@@ -90,7 +92,7 @@ const { hydration } = UseHydration(order)
                     <div className='text-sm'>
                       <details className="group">
                         <summary className="flex justify-between flex-col items-center  font-medium cursor-pointer list-none">
-                          <div className='flex font-bold text-lg '>
+                          <div className='flex font-bold text-sm lg:text-lg '>
 
                             <p> See Order Items</p>
                             <span className="transition group-open:rotate-180 mx-2 mt-1 ">
@@ -106,7 +108,7 @@ const { hydration } = UseHydration(order)
 
                     </div>
 
-                    <p className="border-dashed border-t-2  border-body pt-3 font-bold uppercase">
+                    <p className=" border-t-2  border-body pt-3 font-bold uppercase text-xs lg:text-base">
                       total :  {item.totalBill[0]?.total} EGP
                     </p>
 
@@ -119,7 +121,7 @@ const { hydration } = UseHydration(order)
 
 
           </div>
-        </div> : <div className='min-h-screen flex items-center'>
+        </div> </div>: <div className='min-h-screen flex items-center bg-gradient-to-t to-mainRed from-main_orange'>
               <Loading shape={'box'}/>
         </div>
         }
