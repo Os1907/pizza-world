@@ -21,7 +21,7 @@ export default function Navbar() {
 
 
           {
-            pathname.includes("Dashboard") ? <div  className='bg-dark  text-body rounded-pixel2xl w-full lg:w-auto   text-lg lg:mt-5  inline-flex py-1 lg:py-4 px-3 lg:flex-col items-center justify-center gap-y-4'>
+            pathname.includes("Dashboard") ? <div  className='bg-blury  text-body rounded-pixel2xl w-full lg:w-auto   text-lg lg:mt-5  inline-flex py-1 lg:py-4 px-3 lg:flex-col items-center justify-center gap-y-4'>
               <Link href='/Dashboard/orders'>
 
                 <p className='  hover:bg-main transition-all cursor-pointer rounded-pixel p-2'>

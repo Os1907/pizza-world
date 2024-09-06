@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body{
-    background-image: url(../../../public//Images//bg.jpg);
+    /* background-image: url(../../../public//Images//bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position : relative ;
-/* background-color: #F8F8F8; */
+    position : relative ; */
+background-color: #041C32;
 /* background-color: #f4f7fe; */
 /* color: #dee1e7; */
 }

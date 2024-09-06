@@ -1,10 +1,12 @@
+import { order } from "@/helper/Items/order";
 import { IfinalOrder } from "@/interface/iFinalOrder";
 import { createSlice } from "@reduxjs/toolkit";
+
 
 const initialState: IfinalOrder[] =
   typeof window !== "undefined" && localStorage.getItem("orderList")
     ? JSON.parse(localStorage.getItem("orderList") || "[]")
-    : [];
+    : order;
 const orderList = createSlice({
   name: "orderList",
   initialState,

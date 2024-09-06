@@ -29,7 +29,7 @@ export default function Layout({ children }: IlayOut) {
                     <Loading shape={'box'} />
                     <p className='text-center text-body font-bold text-xl lg:text-5xl'> No Orders Yet</p>
 
-                </div> : <>  <div className='   grid grid-cols-10 min-h-screen  pt-4 2xl:px-4 md:px-10 mx-4'>
+                </div> : <>  <div className='   grid grid-cols-10 min-h-screen  pt-4 2xl:px-4 md:px-10 mx-4 gap-x-4'>
                     {
                         hydration ? <> <div className='   col-span-10 xl:col-span-4 pt-4 lg:pt-8    '>
 
@@ -53,10 +53,16 @@ export default function Layout({ children }: IlayOut) {
                                                         <div className='flex gap-x-1 items-center text-body'>
                                                             <IoIosTimer className='text-sm' />
                                                             <p className=' font-semibold text-sm'>
-                                                                {order?.date?.time.slice(0, 5)}
+                                                                
+                                                                {
+                                                                    order?.date?.time ?  `${order?.date?.time.slice(0, 5)}` : "08.00"
+                                                                }
                                                             </p>
                                                             <p className='font-medium text-xs mx-2 '>
-                                                                {order?.date?.day},{order?.date?.month}
+                                                            {
+                                                                    order?.date?.day ?  `${order?.date?.day},${order?.date?.month}` : "2,september"
+                                                                }
+                                                                
                                                             </p>
 
                                                         </div>

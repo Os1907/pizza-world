@@ -19,14 +19,3 @@ const page = () => {
 
 export default page
 
-
-
-/*
-{
-orderId:"123OR213",
-name:"Osama Mohamed",
-price:"220",
-status:"Preparing"
-
-}
- */

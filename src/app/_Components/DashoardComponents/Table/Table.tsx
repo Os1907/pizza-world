@@ -7,8 +7,8 @@ const ReportTable = () => {
   
         
       <div className="overflow-x-auto relative  m-4 lg:mr-24 lg:ml-24      ">
-        <table className="w-full text-sm text-left   border-body border ">
-          <thead className="text-xs text-body uppercase bg-main   ">
+        <table className="w-full text-sm text-left     rounded-pixel ">
+          <thead className="text-xs text-body uppercase bg-main ">
             <tr>
               <th  className="py-3 px-6">Order Id</th>
               <th  className="py-3 px-6">Customer</th>
