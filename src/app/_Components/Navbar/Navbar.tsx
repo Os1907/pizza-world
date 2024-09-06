@@ -31,7 +31,7 @@ export default function Navbar() {
   }, []);
   return (
     <>
-      <aside className={  pathname.includes("Dashboard") ? ` flex justify-between lg:justify-start  gap-x-5  lg:flex-col items-center  bg-dark  lg:mBlur border-r border-body border-b lg:border-b-0 lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full bg-dark z-50 ' : 'lg:fixed'}  ` :` flex justify-center lg:justify-start  gap-x-5  lg:flex-col items-center  bg-gradient-to-t to-mainRed from-main_orange  lg:mBlur border-r border-main_orange lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full z-50 ' : 'lg:fixed'}    `}>
+      <aside className={  pathname.includes("Dashboard") ? ` flex justify-between lg:justify-start  gap-x-5  lg:flex-col items-center  bg-dark  lg:mBlur border-r border-body border-b lg:border-b-0 lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full bg-dark z-50 ' : 'lg:fixed'}  ` :` flex justify-between lg:justify-start  gap-x-5  lg:flex-col items-center  bg-gradient-to-t to-mainRed from-main_orange  lg:mBlur border-r border-main_orange lg:w-24  xl:w-32  lg:mx-0 py-3 lg:py-0  lg:pb-5  px-4  lg:min-h-screen ${isFixed ? 'fixed top-0 w-full z-50 ' : 'lg:fixed'}    `}>
 
         <Image src="/Images/wlogo.png" className="lg:my-12  px-1 size-14 " alt="logo" width={100} height={100} />
 
