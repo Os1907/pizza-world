@@ -14,7 +14,7 @@ const names = [
   
   
   
- export  const data = names.map(items => {
+ export  let data = names.map(items => {
       return {
           orderId: `#${Math.floor(100000 + Math.random() * 900000)}` ,
           name:items,

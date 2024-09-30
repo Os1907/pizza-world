@@ -1,9 +1,19 @@
 import React, { ReactNode } from 'react'
 import Navbar from '../_Components/Navbar/Navbar'
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 interface IlayOut {
     children: React.ReactNode
 }
 export default function layout({ children }: IlayOut) {
+    const cookieStore = cookies();
+    const token = cookieStore.get('token')?.value;
+  
+    if (!token) {
+      redirect('/login');
+    }
+  
+  
     return (
         <>
 
