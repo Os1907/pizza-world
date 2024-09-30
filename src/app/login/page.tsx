@@ -1,22 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
+import { cookies } from 'next/headers';
 
 const Page = () => {
- 
   const router = useRouter()
+const [store, setStore] = useState(false)
+if (document.cookie.includes('token=')) {
+    router.push('/Dashboard/orders'); 
 
-
-  const handleLogin = (e: React.FormEvent) => {
+}
+const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     const fakeToken = 'loginToken'
-    document.cookie = `token=${fakeToken}` 
-    router.push('/Dashboard/orders')
-  }
+    document.cookie = `token=${fakeToken}`
+    setStore(true)
+    router.push('/Dashboard/orders'); 
+   
+  } 
+  
 
   return (
-    <div className="bg-dark min-h-screen ">
+    <div className="bg-dark min-h-screen">
       <div className="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div className="max-w-md w-full">
           <div className="p-8 rounded-2xl bg-main">
@@ -28,9 +34,8 @@ const Page = () => {
                   <input
                     name="email"
                     type="email"
-                    value='admin@admin.com'
-                  
                     required
+                    defaultValue={"admin@admin.com"}
                     className="w-full text-lightDark text-sm border border-gray-300 px-4 py-3 rounded-pixel outline-none"
                     placeholder="Enter email"
                   />
@@ -42,7 +47,7 @@ const Page = () => {
                   <input
                     name="password"
                     type="password"
-                    value='admin'
+                    defaultValue={"admin@admin.com"}
                     required
                     className="w-full text-lightDark text-sm border border-gray-300 px-4 py-3 rounded-pixel outline-none"
                     placeholder="Enter password"
@@ -62,7 +67,7 @@ const Page = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Page

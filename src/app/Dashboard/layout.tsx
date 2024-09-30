@@ -6,14 +6,11 @@ interface IlayOut {
     children: React.ReactNode
 }
 export default function layout({ children }: IlayOut) {
-    const cookieStore = cookies();
-    const token = cookieStore.get('token')?.value;
-  
+    const cookieStore = cookies()
+    const token = cookieStore.get('token')?.value
     if (!token) {
-      redirect('/login');
+      redirect('/login')
     }
-  
-  
     return (
         <>
 
