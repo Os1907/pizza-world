@@ -1,30 +1,28 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
 
 const Page = () => {
   const router = useRouter();
-  const token = Cookies.get('token'); 
-const [store, setStore] = useState(false)
-
-  const handleLogin =  (e: React.FormEvent) => {
-    e.preventDefault()
-    const fakeToken = 'loginToken'
-    document.cookie = `token=${fakeToken}`
-    setTimeout(()=> {
-        setStore(true)
-
-    },200)
-    
-  } 
   
-  useEffect(() => {
-    if (token) {
-        router.push('/Dashboard/orders'); 
-      }
-  }, [ router ,token]);
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // const fakeToken = 'loginToken';
+    // Cookies.set('token', fakeToken, { path: '/' });
+
+    // // console.log("Success");
+    router.push('/Dashboard/orders');
+  };
+
+//   useEffect(() => {
+//     const token = Cookies.get('token');
+//     if (token) {
+//       router.push('/Dashboard/orders');
+//     }
+//   }, [router]); 
 
   return (
     <div className="bg-dark min-h-screen">
