@@ -2,26 +2,25 @@
 
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { cookies } from 'next/headers';
 
 const Page = () => {
   const router = useRouter()
 const [store, setStore] = useState(false)
 if (document.cookie.includes('token=')) {
-    router.push('/Dashboard/orders');
+    router.push('/Dashboard/orders')
   }
 const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     const fakeToken = 'loginToken'
     document.cookie = `token=${fakeToken}`
-    router.push('/Dashboard/orders'); 
+    router.push('/Dashboard/orders')
    
   } 
   useEffect(() => {
-    if (document.cookie.includes('token=')) {
-      router.push('/Dashboard/orders');
-    }
-  }, [router]); 
+    if (typeof window !== 'undefined' && document.cookie.includes('token=')) {
+        router.push('/Dashboard/orders');
+      }
+  }, [router])
 
   return (
     <div className="bg-dark min-h-screen">
