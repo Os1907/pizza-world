@@ -7,10 +7,11 @@ interface IlayOut {
 }
 export default function layout({ children }: IlayOut) {
     const cookieStore = cookies()
-    const token = cookieStore.get('token')?.value
+    const token = cookieStore?.get('token')?.value
     if (!token) {
       redirect('/login')
     }
+    
     return (
         <>
 

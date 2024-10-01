@@ -1,24 +1,30 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 const Page = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const token = Cookies.get('token'); 
 const [store, setStore] = useState(false)
 
-const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin =  (e: React.FormEvent) => {
     e.preventDefault()
     const fakeToken = 'loginToken'
     document.cookie = `token=${fakeToken}`
-    router.push('/Dashboard/orders')
-   
+    setTimeout(()=> {
+        setStore(true)
+
+    },200)
+    
   } 
+  
   useEffect(() => {
-    if (typeof window !== 'undefined' && document.cookie.includes('token=')) {
-        router.push('/Dashboard/orders');
+    if (token) {
+        router.push('/Dashboard/orders'); 
       }
-  }, [router])
+  }, [ router ,token]);
 
   return (
     <div className="bg-dark min-h-screen">
@@ -46,8 +52,8 @@ const handleLogin = async (e: React.FormEvent) => {
                   <input
                     name="password"
                     type="password"
-                    defaultValue={"admin@admin.com"}
                     required
+                    defaultValue={"admin@admin.com"}
                     className="w-full text-lightDark text-sm border border-gray-300 px-4 py-3 rounded-pixel outline-none"
                     placeholder="Enter password"
                   />
@@ -69,4 +75,4 @@ const handleLogin = async (e: React.FormEvent) => {
   );
 };
 
-export default Page
+export default Page;
