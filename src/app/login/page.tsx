@@ -6,9 +6,7 @@ import React, { useEffect, useState } from 'react'
 const Page = () => {
   const router = useRouter()
 const [store, setStore] = useState(false)
-if (document.cookie.includes('token=')) {
-    router.push('/Dashboard/orders')
-  }
+
 const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     const fakeToken = 'loginToken'
