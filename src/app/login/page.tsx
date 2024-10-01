@@ -8,18 +8,20 @@ const Page = () => {
   const router = useRouter()
 const [store, setStore] = useState(false)
 if (document.cookie.includes('token=')) {
-    router.push('/Dashboard/orders'); 
-
-}
+    router.push('/Dashboard/orders');
+  }
 const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     const fakeToken = 'loginToken'
     document.cookie = `token=${fakeToken}`
-    setStore(true)
     router.push('/Dashboard/orders'); 
    
   } 
-  
+  useEffect(() => {
+    if (document.cookie.includes('token=')) {
+      router.push('/Dashboard/orders');
+    }
+  }, [router]); 
 
   return (
     <div className="bg-dark min-h-screen">
